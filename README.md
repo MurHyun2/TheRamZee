@@ -1,4 +1,5 @@
 ## THE RAMZEE
+🏆삼성 청년 SW아카데미(SSAFY) 12th 공통 프로젝트 우수상🏆
 
 ### 프로젝트 소개
 <img src="https://github.com/user-attachments/assets/fd99f49f-84db-4add-802f-241bebfa0b04" width="50" height="50"> 
@@ -9,7 +10,6 @@
 - 미니게임을 플레이하고 나쁜 다람쥐를 피해 미션을 모두 완수합니다. 미션을 모두 완수하지 못하면 투표를 통해 나쁜 다람쥐를 찾아내세요.
 - 개발 기간 : 2024.01.06 ~ 02.21
 - URL : https://ramzee.online/
-- 성과 : 삼성 청년 SW 아카데미 공통프로젝트 우수상
 
 <br><br>
 ### 구성원
