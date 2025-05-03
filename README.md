@@ -1,4 +1,4 @@
-## THE RAMZEE
+# THE RAMZEE
 🏆삼성 청년 SW아카데미(SSAFY) 12th 공통 프로젝트 우수상🏆
 
 ### 프로젝트 소개
@@ -10,8 +10,8 @@
 - 미니게임을 플레이하고 나쁜 다람쥐를 피해 미션을 모두 완수합니다. 미션을 모두 완수하지 못하면 투표를 통해 나쁜 다람쥐를 찾아내세요.
 - 개발 기간 : 2024.01.06 ~ 02.21
 - URL : https://ramzee.online/
+<br>
 
-<br><br>
 ### 구성원
 <table>
   <tbody>
@@ -49,7 +49,62 @@
     </tr>
   </tbody>
 </table>
-<br><br>
+<br>
+
+# 👨🏻‍💻 담당 업무 (DevOps)
+
+## :bust_in_silhouette: 이대현
+
+> ### EC2 인프라 환경 세팅
+
+- 전체 아키텍쳐 설계
+
+- 서비스 SSL 보안 적용  
+  - Let's Encrypt와 Certbot을 활용해 SSL 인증서를 발급 및 자동 갱신 설정
+  - HTTPS 적용을 통한 공격 방지 및 데이터 보호
+
+- 서버 구성 요소 설정  
+  - Nginx, Docker, MySQL, ufw 등
+
+- openvidu 서버 구성 및 클라이언트 연동 설정
+
+- 환경변수 관리  
+  - .env 파일 설계 및 관리 체계 구축
+
+> ### FrontEnd / BackEnd EC2 배포
+
+- Dockerfile 작성 및 Config 파일 설정
+
+- docker-compose 파일을 통한 컨테이너 오케스트레이션 구성
+
+> ### Nginx 웹서버 적용
+
+- Reverse Proxy 설정  
+  - Nginx를 이용하여 접근 제어 및 서비스 리다이렉션 구성
+
+- 악성 봇 접근 차단  
+  - 브루트포스 공격, 스크래핑 등 악성 트래픽 차단을 위한 보안 정책 적용
+
+> ### Jenkins CI/CD Pipeline 구축
+
+- GitLab Webhook 연동  
+  - GitLab의 push 및 merge 이벤트 발생 시 Jenkins에 상태 전송 및 빌드 트리거 자동화
+
+- Docker Hub 이미지 배포
+  - 빌드 완료 후 Docker Hub에 이미지를 자동으로 푸시하는 CI/CD 파이프라인 구성
+
+- EC2 서버 배포  
+  - 최신 빌드 이미지를 EC2에서 자동으로 pull 받아 Docker 컨테이너 실행
+
+- Mattermost 연동  
+  - Jenkins 빌드 결과 및 상태를 Mattermost 채널에 알림 메시지 봇을 통해 전송
+
+> ### GA4 연동
+
+  - Google Analytics 4(GA4)와의 연동을 통해 사용자 행동 및 방문 통계를 분석
+    - 게임 맵별 머무름 시간 및 이벤트 발생 패턴 분석
+    - 지역별 분포, 평균 접속 시간, 재방문율 등 방문자 통계 심층 분석
+<br>
 
 ### 프로젝트 아키텍쳐
 
@@ -177,297 +232,3 @@ Jira를 통해 한주의 스프린트를 정하고 백로그를 진행해 현재
 <img src="https://github.com/user-attachments/assets/b7f68536-0a5e-418f-8ddc-4c6fe5212f67" width="400" height="250"/><br>
 착한 다람쥐와, 나쁜다람쥐가 선정됩니다. 착한 다람쥐는 에너지를 채워 미션을 수행하고 창고에 도토리를 저장해 게임에서 승리합니다.<br> 나쁜 다람쥐는 에너지를 채워 착한 다람쥐를 모두 죽이고 승리합니다. 투표는 총 2회로 중간 투표, 최종 투표가 주어집니다.<br> 중간 투표에서는 게임을 망치는 인원이나 나쁜 다람쥐를 찾아 죽입니다.<br> 만약 나쁜 다람쥐가 죽으면 착한 다람쥐의 승리입니다.<br> 최종 투표에서는 나쁜 다람쥐가 죽으면 착한 다람쥐가 승리이지만 나쁜 다람쥐가 살아남았다면 나쁜 다람쥐의 최종 승리입니다.
 <br><br>
-
-### 구성원 별 담당 내용
-
-## :bust_in_silhouette: 박종경
-
-> ### spring security
-
-- jwt token 기반으로 회원 정보를 보관
-
-- 외부 api 요청에 대한 권한 설정
-
-> ### 회원
-
-- 회원 정보 조회 기능
-
-- 회원 정보 수정 기능
-    - 비밀번호 변경
-    - 닉네임 변경
-    
-- 회원 가입 기능
-    - 회원 가입 시 회원 비밀번호 해싱
-    - 이메일 인증을 통한 회원 가입
-
-- 회원 탈퇴 기능
-
-- 로그인
-  - 로그인시 jwt 토큰을 발급해 사용자의 정보를 안전하게 보관
-  - refresh 토큰은 redis에 저장해 빠른 사용 가능
-    
-> ### 친구
-
-- 친구 목록 조회
-
-- 친구 추가 기능
-    - 친구 닉네임을 통해 친구 추가
-    - WebSocket을 활용해 실시간으로 친구 추가 알림 전송
-    
-- 친구 삭제
-  - WebSocket을 활용해 실시간으로 친구 삭제
-
--  친구 요청 목록 조회
-
-> ### 채팅
-
-- 친구의 닉네임을 통해 채팅
-
-- 1:1 채팅
-  - 1:1 채팅은 WebSocket을 활용해 실시간으로 대화 제공
-  - 채팅 기록은 하루동안 redis에 보관
-  - 친구가 채팅을 읽고 있지 않으면 redis에 읽지 않은 메시지를 카운트해 친구에게 제공
-    
-<br/>
-
-## :bust_in_silhouette: 이대현
-
-> ### EC2 인프라 환경 세팅
-
-- 전체 아키텍쳐 설계
-
-- 서비스 SSL 보안 적용  
-  - Let's Encrypt와 Certbot을 활용해 SSL 인증서를 발급 및 자동 갱신 설정
-  - HTTPS 적용을 통한 공격 방지 및 데이터 보호
-
-- 서버 구성 요소 설정  
-  - Nginx, Docker, MySQL, ufw 등
-
-- openvidu 서버 구성 및 클라이언트 연동 설정
-
-- 환경변수 관리  
-  - .env 파일 설계 및 관리 체계 구축
-
-> ### FrontEnd / BackEnd EC2 배포
-
-- Dockerfile 작성 및 Config 파일 설정
-
-- docker-compose 파일을 통한 컨테이너 오케스트레이션 구성
-
-> ### Nginx 웹서버 적용
-
-- Reverse Proxy 설정  
-  - Nginx를 이용하여 접근 제어 및 서비스 리다이렉션 구성
-
-- 악성 봇 접근 차단  
-  - 브루트포스 공격, 스크래핑 등 악성 트래픽 차단을 위한 보안 정책 적용
-
-> ### Jenkins CI/CD Pipeline 구축
-
-- GitLab Webhook 연동  
-  - GitLab의 push 및 merge 이벤트 발생 시 Jenkins에 상태 전송 및 빌드 트리거 자동화
-
-- Docker Hub 이미지 배포
-  - 빌드 완료 후 Docker Hub에 이미지를 자동으로 푸시하는 CI/CD 파이프라인 구성
-
-- EC2 서버 배포  
-  - 최신 빌드 이미지를 EC2에서 자동으로 pull 받아 Docker 컨테이너 실행
-
-- Mattermost 연동  
-  - Jenkins 빌드 결과 및 상태를 Mattermost 채널에 알림 메시지 봇을 통해 전송
-
-> ### GA4 연동
-
-  - Google Analytics 4(GA4)와의 연동을 통해 사용자 행동 및 방문 통계를 분석
-    - 게임 맵별 머무름 시간 및 이벤트 발생 패턴 분석
-    - 지역별 분포, 평균 접속 시간, 재방문율 등 방문자 통계 심층 분석
-<br/>
-
-## :bust_in_silhouette: 김선진
-
-> ### 피그마 활용 Mockup 및 Prototype 제작
-
-- Mockup 디자인 보조
-
-- Prototype 경로 설정
-
-
-> ### FrontEnd 
-
-- React 활용 컴포넌트 작성
-  - gameroom
-  - missionforest
-  - etc ..
-
-- 생성형 AI를 활용한 미니게임 제작
-  -18종의 미니게임 제작
-
-- api 연결
-  - 방 관련 api (생성,조회 ...)
-  - 회원 관련 api(가입, 비밀번호 찾기..)
-
-> ### 디자인
-
-- 맵 관련 디자인
-  - 미션 맵
-- 미니게임 관련 디자인
-- 게임요소 디자인
-  -상태 패널, 버튼, 타이머머 
-
-> ### 발표
-
-- 발표자료 및 영상포트폴리오 제작
-
-  
-<br/>
-
-## :bust_in_silhouette: 김승윤
-
-> ### 화상게임
-
-- OpenVidu Config 설정
-
-- OpenVidu Exception 설정
-
-- OpenVidu 세션 생성 기능
-    - roomId로 OpenVidu 세션 생성
-
-- OpenVidu 토큰 생성 기능
-    - 사용자 nickname과 sessionId로 토큰 생성
-
-- 숲 이동시 화상연결 기능
-    - 같은 숲에 있는 사용자 video만 필터링하여 렌더링
-
-- 숲 이동시 음성 연결 기능
-    - 같은 숲에 있고 생존해 있는 사용자 Audio만 연결
-    
-> ### 대기방
-
-- 대기방 조회
-    - fetch join으로 참여자 수와 함께 목록 조회
-    - fetch join으로 참여자 수와 함께 단건 조회
-
-- 대기방 생성
-    - 생성자가 기존 방이 있다면 기존 방 삭제
-    - OpenVidu 세션 생성
-    - 호스트에게 OpenVidu 토큰 생성 후 전달
-
-- 대기방 참여 기능
-    - 참여자가 기존 방이 있다면 기존 방에서 나가기
-    - 비밀번호 검증
-    - 참여 최대 인원 제한(6명)
-    - OpenVidu 토큰 생성 후 전달
-
-- 친구방 참여 기능
-    - 친구가 참여한 방 따라가기
-
-- 대기방 나가기 기능
-    - 생성자가 나가면 방 삭제
-
-> ### UX 개선
-
-- 긴급투표, 게임 종료 상황별 transition 기능
-    
-<br/>
-
-## :bust_in_silhouette: 김경환
-
-> ### WEBSOCKET
-
-- BackEnd
-	- WebSocket STOMP 엔드포인트 등록 및 설정
-
-	- STOMP 메시지 브로커 설정 및 메시지 라우팅
-
-	- JWT 기반 인증 처리 (StompHandler를 활용한 토큰 전달 및 검증)
-	
-- FrontEnd
-	- WebSocket 연결 및 해제 로직 구현
-	
-	- 구독 및 구독 해제 기능 개발
-	
-	- STOMP 메시지 전송 및 핸들링 구현
-    
-> ### 게임
-
-- BackEnd
-	- GameController 구현
-			- API 요청을 처리하는 ApiController
-			- 실시간 WebSocket 메시지를 처리하는 WebSocketController
-		
-	- Game 전체 로직 구현
-		- WebSocket 기반의 실시간 데이터 송수신
-		- Redis를 활용한 게임 리소스 관리 및 캐싱
-		- 모든 게임 이벤트 핸들링 및 로직 설계
-		
-- FrontEnd
-	- 백엔드 API 및 WebSocket 통신 모듈 구현
-	- WebSocket 핸들러 개발 및 이벤트 처리
-	- GameContext 구현 및 상태 관리
-	
-- Connect (연동)
-	- 백엔드로부터 실시간 데이터 수신 및 처리
-	- 프론트엔드에서 게임 데이터 업데이트 및 상태 반영
-	- Redis 기반 GameContext 동기화 및 관리
-
-> ### 서기
-
-- 프로젝트 문서화 (Notion 활용)
-
-- 주간 회의 기록 및 정리
-
-- 미팅 자료 작성 및 공유
-
-- 에러 로그 기록 및 해결 과정 문서화
-    
-<br/>
-
-## :bust_in_silhouette: 신경원
-
-> ### 기획(부팀장)
-
-- 전반적 기획 조정
-- FigJam을 이용한 플로우 차트 생성 주도
-
-> ### 디자인 및 설계
-
-- Figma 활용 화면 설계 및 prototype 구성
-- 무료 툴을 이용한 게임 에셋 생성(인트로 영상, 게임 요소 등)
-  - Movavi 사용한 인트로 영상
-  - [Piskel](https://www.piskelapp.com/)
-    - .png, .gif
-    - 도트 형식의 정적 캐릭터와 동적 캐릭터
-    - 마우스 포인터와 호버 등 캐릭터 구현
-
-> ### UI/UX
-
-- Input 영역과 button 영역 등 각종 반응형 및 동적 디자인 적용
-- Z-index를 활용하여 레이어를 분할하여 게임 진행에 도움을 줌
-	- 카메라, 죽음, 상태창, 시간 등 각종 요소
-- 각종 사용자의 행동에 따른 alert를 통해 팝업으로 알림
-- 오버레이 창을 이용한 적절한 배치 구현
-
-> ### Frontend
-
-- 각 Page.jsx와 컴포넌트.jsx를 구현 및 분할
-	- 재사용성을 높임
-- React 활용하여 컨텐츠 구현
-	- react-router-dom을 이용하여 페이지 이동을 원활히 함
-	- context를 두어 상태관리를 원활히 함
-		- 브라우저 이벤트로 유저 상태 관리하는 UserContext.jsx
-		- 전체 친구관리와 웹소캣 채팅을 관리하는 FriendContext.jsx
-		- etc...
-	- feature/constants/zIndex.js로 z-index 상수를 두어 재사용성을 높임
-	- assets/images/index.js로 이미지를 묶어 관리하도록 하여 재사용성 높임
-	- 친구 오버레이 구현
-		- 채팅 오버레이 구현
-		- ProfilePage.jsx와 컴포넌트 구현
-			- 캠, 회원 수정, 탈퇴 등 요소 구현 및 API 연결
-		- FriendPage.jsx와 컴포넌트 적용
-			- 따라가기 구현 및 API 연결
-	- 각종 라우팅과 API 연결
-	- 피드백 반영하여 지속적인 수정
-- style-components를 지속적으로 수정
-	- UX 적용 및 사용자 친화적인 환경으로 수정
-
-<br/>
